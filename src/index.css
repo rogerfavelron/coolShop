@@ -7,7 +7,7 @@
     /*font-family: 'Press Start 2P',cursive;*/
 }
 html,body{
-   background-color:rgb(240, 240, 240);
+   background-color:rgb(173, 173, 173);
 }
 button{
     outline:none;
@@ -15,7 +15,7 @@ button{
     background-color: inherit;
     cursor:pointer;
     color:inherit;
-    color:rgb(204, 114, 200);
+    color:rgb(197, 136, 194);
     
 }
 input[type='radio'] { 

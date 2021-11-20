@@ -1,7 +1,24 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import {useSelector,useDispatch} from 'react-redux';
+import { selectBasket,addProduct } from '../State/BasketSlice';
 
 const ProductCard = ({name, price, imageUrl}) => {
+
+    const basket = useSelector(selectBasket);
+    const dispatch = useDispatch();
+    const productData = {
+        name,price,imageUrl
+    }
+    const addProductHandler = () =>{
+        dispatch(addProduct(productData));
+        console.log(basket);
+    }
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      }
+      price = numberWithCommas(price);
     return (
         <ProductCardWrapper>
             <ImageWrapper>
@@ -11,7 +28,7 @@ const ProductCard = ({name, price, imageUrl}) => {
                 <ProductName>{name}</ProductName>
                 <ProductPrice>${price}</ProductPrice>
             </ProductDetails>
-            <StyledButton>Add to the cart</StyledButton>
+            <StyledButton onClick={addProductHandler}>Add to the cart</StyledButton>
         </ProductCardWrapper>
     )
 }
@@ -26,6 +43,7 @@ padding:0.5rem;
 border:3px solid pink;
 border-radius:1rem;
 height:25rem;
+margin:1rem;
 `
 const ImageWrapper = styled.div`
 width:100%;

@@ -6,12 +6,12 @@ import Cart from './Cart'
 import {Link} from 'react-router-dom'
 
 const Navbar = () => {
-    const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isCartOpen, setIsCartOpen] = useState(true);
     const [isOnMobile, setIsOnMobile] = useState(false);
-    const changeCartStatus = () => {/*
+    const changeCartStatus = () => {
         if(isCartOpen==false) setIsCartOpen(true)
-        else setIsCartOpen(false)*/
-        setIsCartOpen(false);
+        else setIsCartOpen(false)
+        
     }
 
     const onMobile = () => {
@@ -25,9 +25,9 @@ const Navbar = () => {
             <NavbarWrapper>
                 <TitleWrapper>Cool Shop</TitleWrapper>
                 <LinksWrapper isOnMobile={isOnMobile}>
-                    <ListElement onClick={changeCartStatus} isOnMobile={isOnMobile} to="/electronics">Electronics</ListElement>
-                    <ListElement onClick={changeCartStatus} isOnMobile={isOnMobile} to="/onepiece">One Piece</ListElement>
-                    <ListElement onClick={changeCartStatus} isOnMobile={isOnMobile} to="about">About</ListElement>
+                    <ListElement  isOnMobile={isOnMobile} to="/electronics">Electronics</ListElement>
+                    <ListElement  isOnMobile={isOnMobile} to="/onepiece">One Piece</ListElement>
+                    <ListElement  isOnMobile={isOnMobile} to="about">About</ListElement>
                     <ButtonWrapper onClick={changeCartStatus}> <FaShoppingBag /> Cart</ButtonWrapper>
                     <CloseButton onClick={onMobile} isOnMobile={isOnMobile}><ImCross/> </CloseButton>
                 </LinksWrapper>
@@ -36,7 +36,7 @@ const Navbar = () => {
                 </BarsWrapper>
                 
             </NavbarWrapper>
-            {/*<Cart isCartOpen={isCartOpen}/> */}
+            <Cart isCartOpen={isCartOpen} changeCartStatus={changeCartStatus}/> 
         </>
     )
 }
@@ -68,6 +68,7 @@ flex-flow:row nowrap;
 justify-content: space-evenly;
 align-items: center;
 background-color:rgb(222,222,222);
+//background-color: rgb(204, 114, 200);
 @media only screen and (min-width:800px){
 height:7rem;
 }
