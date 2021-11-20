@@ -1,13 +1,24 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Press+Start+2P&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Montserrat Alternates', sans-serif;
+    /*font-family: 'Press Start 2P',cursive;*/
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,body{
+   background-color:rgb(240, 240, 240);
+}
+button{
+    outline:none;
+    border:none;
+    background-color: inherit;
+    cursor:pointer;
+    color:inherit;
+    color:rgb(204, 114, 200);
+    
+}
+input[type='radio'] { 
+    transform: scale(1.5);
+    margin:0.25rem; 
 }
