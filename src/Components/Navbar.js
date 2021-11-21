@@ -9,7 +9,7 @@ const Navbar = () => {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isOnMobile, setIsOnMobile] = useState(false);
     const changeCartStatus = () => {
-        if (isCartOpen == false) setIsCartOpen(true)
+        if (isCartOpen === false) setIsCartOpen(true)
         else setIsCartOpen(false)
 
     }
