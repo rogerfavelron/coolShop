@@ -3,38 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 export const Slice = createSlice({
     name:"basket",
     initialState:{
-        products:{
-            "Luffy":{
-                "count":5,
-                "name":"Luffy",
-                "price":1500000000,
-                "image":"https://i.ibb.co/Z2DV2MT/luffy.png"
-            },
-            "Zoro":{
-                "count":5,
-                "name":"Zoro",
-                "price":320000000,
-                "image":"https://i.ibb.co/Z2DV2MT/luffy.png"
-            },
-            "Robin":{
-                "count":5,
-                "name":"Robin",
-                "price":320000000,
-                "image":"https://i.ibb.co/Z2DV2MT/luffy.png"
-            },
-            "Nami":{
-                "count":5,
-                "name":"Nami",
-                "price":320000000,
-                "image":"https://i.ibb.co/Z2DV2MT/luffy.png"
-            },
-            "Franky":{
-                "count":5,
-                "name":"Franky",
-                "price":320000000,
-                "image":"https://i.ibb.co/Z2DV2MT/luffy.png"
-            }
-        }
+        products:{ }
     },
     reducers:{
         addProduct : (state,action)=>{

@@ -11,8 +11,11 @@ const ProductCard = ({name, price, imageUrl}) => {
         name,price,imageUrl
     }
     const addProductHandler = () =>{
-        dispatch(addProduct(productData));
+        if(price!=="unknown"){
+            dispatch(addProduct(productData));
         console.log(basket);
+        }
+        
     }
 
     function numberWithCommas(x) {
@@ -28,7 +31,7 @@ const ProductCard = ({name, price, imageUrl}) => {
                 <ProductName>{name}</ProductName>
                 <ProductPrice>${price}</ProductPrice>
             </ProductDetails>
-            <StyledButton onClick={addProductHandler}>Add to the cart</StyledButton>
+            <StyledButton onClick={addProductHandler}>Add to cart</StyledButton>
         </ProductCardWrapper>
     )
 }
@@ -40,10 +43,11 @@ display:flex;
 flex-flow:column nowrap;
 align-items: center;
 padding:0.5rem;
-border:3px solid pink;
+border:3px solid purple;
 border-radius:1rem;
-height:25rem;
+height:26rem;
 margin:1rem;
+background-color:rgb(222,222,222);
 `
 const ImageWrapper = styled.div`
 width:100%;

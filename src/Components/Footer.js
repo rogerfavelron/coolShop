@@ -9,7 +9,7 @@ const Footer = () => {
             <FooterWrapper>
                 This shop only sells cool products.
             <LinksWrapper>
-            <LinkWrapper to='https://github.com/rogerfavelron'><FaGithub/></LinkWrapper>
+            <GithubLink href='https://github.com/rogerfavelron'><FaGithub/></GithubLink>
             <LinkWrapper to="/careers">Careers</LinkWrapper>
             <LinkWrapper to="/about">About</LinkWrapper>
             </LinksWrapper>
@@ -41,8 +41,14 @@ border-radius: 0.25rem;
 text-decoration: none;
 color:white;
 font-size:1.5rem;
-
-
 `
-
+const GithubLink = styled.a`
+padding:1rem;
+margin:0.5rem;
+border:3px solid pink;
+border-radius: 0.25rem;
+text-decoration: none;
+color:white;
+font-size:1.5rem;
+`
 export default Footer

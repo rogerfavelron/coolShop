@@ -1,47 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components'
-import { FaBars,FaShoppingBag  } from 'react-icons/fa'
+import { FaBars, FaShoppingBag } from 'react-icons/fa'
 import { ImCross } from "react-icons/im";
 import Cart from './Cart'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-    const [isCartOpen, setIsCartOpen] = useState(true);
+    const [isCartOpen, setIsCartOpen] = useState(false);
     const [isOnMobile, setIsOnMobile] = useState(false);
     const changeCartStatus = () => {
-        if(isCartOpen==false) setIsCartOpen(true)
+        if (isCartOpen == false) setIsCartOpen(true)
         else setIsCartOpen(false)
-        
-    }
 
+    }
+    useEffect(() => {
+        function handleResize() {
+            if (window.innerWidth >= 800) {
+                console.log("now bigger than 800")
+                setIsOnMobile(false);
+            }
+        }
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        //Cleanup the useEffect when the component unmounts
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     const onMobile = () => {
         if (isOnMobile) setIsOnMobile(false)
         else setIsOnMobile(true)
-        console.log("changed the mobile")
+        console.log("changed the mobile now")
 
     }
     return (
         <>
             <NavbarWrapper>
-                <TitleWrapper>Cool Shop</TitleWrapper>
+                <TitleWrapper to="/">Cool Shop</TitleWrapper>
                 <LinksWrapper isOnMobile={isOnMobile}>
-                    <ListElement  isOnMobile={isOnMobile} to="/electronics">Electronics</ListElement>
-                    <ListElement  isOnMobile={isOnMobile} to="/onepiece">One Piece</ListElement>
-                    <ListElement  isOnMobile={isOnMobile} to="about">About</ListElement>
+                    <ListElement to="/electronics">Electronics</ListElement>
+                    <ListElement to="/onepiece">One Piece</ListElement>
+                    <ListElement to="about">About</ListElement>
                     <ButtonWrapper onClick={changeCartStatus}> <FaShoppingBag /> Cart</ButtonWrapper>
-                    <CloseButton onClick={onMobile} isOnMobile={isOnMobile}><ImCross/> </CloseButton>
+                    <CloseButton onClick={onMobile} isOnMobile={isOnMobile}><ImCross /> </CloseButton>
                 </LinksWrapper>
                 <BarsWrapper onClick={onMobile}>
                     <FaBars />
                 </BarsWrapper>
-                
+
             </NavbarWrapper>
-            <Cart isCartOpen={isCartOpen} changeCartStatus={changeCartStatus}/> 
+            <Cart isCartOpen={isCartOpen} changeCartStatus={changeCartStatus} />
         </>
     )
 }
-const TitleWrapper = styled.div`
+const TitleWrapper = styled(Link)`
 width:75%;
+text-decoration:none;
 height:100%;
 font-size: 2rem;
 font-weight: bolder;
@@ -77,24 +90,24 @@ const LinksWrapper = styled.div`
 display:none;
 width:50%;
 ${({ isOnMobile }) =>
-isOnMobile && css`
+        isOnMobile && css`
 position: absolute;
 display: flex;
 background-color: rgb(235, 231, 227);
 right:0;
-top:0;
-
+top:5rem;
 z-index:1;
 flex-flow:column nowrap;
 justify-content: space-evenly;
-height:500px;
+height:30rem;
+border:4px solid black;
 @media only screen and (max-width:500px){
     width:100%;
 }
 `
- }
- ${({isOnMobile})=>
-!isOnMobile && css`
+}
+ ${({ isOnMobile }) =>
+        !isOnMobile && css`
 @media only screen and (min-width:800px){
     display:flex;
     flex-flow:row nowrap;
@@ -136,7 +149,7 @@ font-weight: 300;
 const CloseButton = styled(ButtonWrapper)`
 display:none;
 ${({ isOnMobile }) =>
-isOnMobile && css`
+        isOnMobile && css`
 display:block;
 text-align:center;
 `}

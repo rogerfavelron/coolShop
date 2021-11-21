@@ -77,8 +77,8 @@ flex-flow:row nowrap;
 const BasketProductWrapper = styled.div`
 display:flex;
 flex-flow:row nowrap;
-justify-content: space-evenly;
 border:0.25rem solid pink;
+justify-content: space-evenly;
 border-radius: 0.5rem;;
 padding:1rem;
 width:100%;
@@ -180,7 +180,7 @@ const CartWrapper = styled.div`
   align-items: center;
   width: 30rem;
   height: 100%;
-  background-color: rgb(197, 136, 194);
+  background-color: rgb(204, 114, 200);
   font-size: 2rem;
   transition: right 0.85s ease-in-out;
 

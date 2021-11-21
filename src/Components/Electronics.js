@@ -5,23 +5,24 @@ import styled, { css } from 'styled-components';
 import { ImCross } from "react-icons/im";
 import { FaSave } from 'react-icons/fa';
 
-const OnePiece = () => {
+const Electronics = () => {
 
     const [totalData, setTotalData] = useState([]);
-    const [crew, setCrew] = useState('straw-hat-pirates');
+    const [brand, setBrand] = useState('Apple');
     const [sorting, setSorting] = useState('');
     const [filtering, setFiltering] = useState(false);
 
     useEffect(() => {
-        const getOpData = async () => {
-            const getCrews = await axios.get('https://fierce-taiga-45635.herokuapp.com/crews');
-            let data = getCrews.data;
-            data = data[crew];
-            console.log("dataa", data);
+        const getElectronicsData = async () => {
+            const baseUrl = 'https://fierce-taiga-45635.herokuapp.com/electronics';
+            const currentUrl = baseUrl + `?brand=${brand}`;
+            const getElectronics = await axios.get(currentUrl);
+            let data = getElectronics.data;
+            console.log("data of electronics", data);
             setTotalData(data);
         }
-        getOpData()
-    }, [crew])
+        getElectronicsData()
+    }, [brand])
 
     const changeFiltering = () => {
         if (filtering === false) {
@@ -34,11 +35,11 @@ const OnePiece = () => {
         }
     }
 
-    const handleCrewChange = (e) => {
+    const handleBrandChange = (e) => {
         const id = e.target.id;
         const checked = e.target.checked;
         console.log("name: ", id, "checked ", checked);
-        setCrew(id)
+        setBrand(id)
     }
 
     const changeSorting = (e) => {
@@ -92,29 +93,18 @@ const OnePiece = () => {
                     <FilterInstanceTitle>Crew</FilterInstanceTitle>
                     <FilterInstanceBody>
                         <div style={{ padding: "0.5rem" }}>
-                            <input onChange={handleCrewChange} type="radio" id="straw-hat-pirates" name="pirates" />
-                            <label for="straw-hat-pirates"> Straw Hat Pirates</label> <br />
+                            <input onChange={handleBrandChange} type="radio" id="Apple" name="electronics" />
+                            <label for="Apple"> Apple</label> <br />
                         </div>
                         <div style={{ padding: "0.5rem" }}>
-                            <input onChange={handleCrewChange} type="radio" id="whitebeard-pirates" name="pirates" />
-                            <label for="whitebeard-pirates"> Whitebeard Pirates</label> <br />
+                            <input onChange={handleBrandChange} type="radio" id="Tesla" name="electronics" />
+                            <label for="Tesla"> Tesla</label> <br />
                         </div>
                         <div style={{ padding: "0.5rem" }}>
-                            <input onChange={handleCrewChange} type="radio" id="roger-pirates" name="pirates" />
-                            <label for="roger-pirates"> Roger Pirates</label> <br />
+                            <input onChange={handleBrandChange} type="radio" id="SpaceX" name="electronics" />
+                            <label for="SpaceX"> SpaceX</label> <br />
                         </div>
-                        <div style={{ padding: "0.5rem" }}>
-                            <input onChange={handleCrewChange} type="radio" id="big-mom-pirates" name="pirates" />
-                            <label for="big-mom-pirates"> Big Mom Pirates</label> <br />
-                        </div>
-                        <div style={{ padding: "0.5rem" }}>
-                            <input onChange={handleCrewChange} type="radio" id="red-hair-pirates" name="pirates" />
-                            <label for="red-hair-pirates"> Red Hair Pirates</label> <br />
-                        </div>
-                        <div style={{ padding: "0.5rem" }}>
-                            <input onChange={handleCrewChange} type="radio" id="beast-pirates" name="pirates" />
-                            <label for="beast-pirates"> Beast Pirates</label> <br />
-                        </div>
+
 
                     </FilterInstanceBody>
                 </FilterInstanceWrapper>
@@ -125,8 +115,8 @@ const OnePiece = () => {
                 </ButtonWrapper>
 
             </FilteringDiv>
-  
-      </div>
+
+        </div>
     )
 }
 const ProductsWrapper = styled.div`
@@ -207,4 +197,4 @@ justify-content: space-evenly;
 `
 
 
-export default OnePiece
+export default Electronics

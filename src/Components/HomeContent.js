@@ -25,6 +25,7 @@ width:100%;
 border-radius:1rem;
 padding:1rem;
 margin-top:1.5rem;
+background-color:rgb(222,222,222);
 @media only screen and (min-width:800px){
     width:80%;
     margin-left:10%;
