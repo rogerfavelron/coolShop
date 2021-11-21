@@ -2,7 +2,7 @@
 
 Live link: "https://rogerfavelron.github.io/coolShop" </br>
 
-To try the app, after cloning and installing the dependencies with `npm i`  the repo :
+To try the app, after cloning and installing the dependencies with `npm i` :
 
 Use `npm start` to start the app on localhost.
 
