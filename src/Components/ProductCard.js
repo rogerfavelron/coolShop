@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {useSelector,useDispatch} from 'react-redux';
 import { selectBasket,addProduct } from '../State/BasketSlice';
 
+//ProductCard components get the necessary data as props and render accordingly.
 const ProductCard = ({name, price, imageUrl}) => {
 
     const basket = useSelector(selectBasket);
@@ -15,9 +16,9 @@ const ProductCard = ({name, price, imageUrl}) => {
             dispatch(addProduct(productData));
         console.log(basket);
         }
-        
     }
-
+    //numberWithCommas is a utility function to represent big numbers with commas between them.
+  //Here is the source: https://stackoverflow.com/a/2901298
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       }

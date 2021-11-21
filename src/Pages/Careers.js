@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const About = () => {
+//careers page
+const Careers = () => {
     return (
         <div>
             <StyledP>
@@ -48,4 +49,4 @@ font-size:1.5rem;
 font-weight: 600;
 color:purple;
 `
-export default About
+export default Careers

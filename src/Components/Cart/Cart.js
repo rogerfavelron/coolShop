@@ -1,95 +1,24 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectBasket, addProduct, removeProduct, emptyBasket } from '../State/BasketSlice';
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import { selectBasket, emptyBasket } from '../../State/BasketSlice';
 import { ImCross } from "react-icons/im";
+import CartProduct from './CartProduct';
 
-const CartProduct = ({ productData }) => {
-  const dispatch = useDispatch();
-  console.log("productData", productData)
-  //Get basket from redux state
-  const basket = useSelector(selectBasket);
-  const basketProducts = Object.values(basket);
-  console.log("basketProducts", basketProducts);
-  //Calculate the total price for this product. Since a product's count may be more than 1, we multiply the product's price with the count 
-  let totalPrice = (parseFloat(productData.price) * productData.count).toFixed(2);
+/*We access our cart from navbar, so we get isCartOpen boolean and changeCartStatus function as our props.
+These props are passed by the Navbar component which uses a bars/dropdown style for smaller screens.
 
-  const addProductController = () => {
-    dispatch(addProduct(productData))
-  }
-  const removeProductController = () => {
-    dispatch(removeProduct(productData))
-  }
+As for the Cart component, we have a little animation and also an overlay at the left. When the cart is open, 
+there's a black (not fully opaque) overlay at the left and the overlay closes the cart when clicked on.
 
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
-  totalPrice = numberWithCommas(totalPrice);
-  return (
-    <BasketProductWrapper>
-      <div>
-        {productData.name}
-        <ProductPrice>$ {totalPrice}</ProductPrice>
-      </div>
-
-      <BasketProductCountWrapper>
-        <BasketProductCountController id="minus" onClick={removeProductController}><FaMinus /></BasketProductCountController>
-        <BasketProductCount>{productData.count}</BasketProductCount>
-        <BasketProductCountController id="plus" onClick={addProductController}><FaPlus /></BasketProductCountController>
-      </BasketProductCountWrapper>
-    </BasketProductWrapper>
-  )
-
-}
-
-const ProductPrice = styled.div`
-color:black;
-font-size: 1rem;
-`;
-
-const BasketProductCountController = styled.button`
-width:2rem;
-height:2rem;
-color:black;
-
-`;
-const BasketProductCount = styled.div`
-background-color:black;
-text-align:center;
-color:white;
-font-size: large;
-padding:0.25rem;
-min-width:2rem;
-max-width:4rem;
-height:2rem;
-`;
-
-const BasketProductCountWrapper = styled.div`
-display:flex;
-justify-content: space-evenly;
-flex-flow:row nowrap;
-align-items:center;
-width:40%;
-flex-flow:row nowrap;
-`;
-
-const BasketProductWrapper = styled.div`
-display:flex;
-flex-flow:row nowrap;
-border:0.25rem solid pink;
-justify-content: space-evenly;
-border-radius: 0.5rem;;
-padding:1rem;
-width:100%;
-margin:1rem 0 1rem 0;
-`;
-
+*/
 const Cart = ({ isCartOpen, changeCartStatus }) => {
-  console.log("changeCartStatus ", changeCartStatus)
+  // console.log("changeCartStatus ", changeCartStatus)
   const basket = useSelector(selectBasket);
   const basketArray = Object.values(basket);
   const dispatch = useDispatch()
+  //get basket, basketArray and dispatch 
+
   //totalPrice is a utility function
   const totalPrice = (price, count) => {
     return (parseFloat(price) * count);
@@ -99,6 +28,9 @@ const Cart = ({ isCartOpen, changeCartStatus }) => {
   let totalCheckout = basketArray.reduce((acc, curr) => {
     return acc + totalPrice(curr.price, curr.count)
   }, 0).toFixed(2);
+
+  //numberWithCommas is a utility function to represent big numbers with commas between them.
+  //Here is the source: https://stackoverflow.com/a/2901298
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
@@ -106,6 +38,9 @@ const Cart = ({ isCartOpen, changeCartStatus }) => {
 
   return (
     <div>
+      {/*
+      Pass the isCartOpen boolean as a prop. We'll display:none when the cart is not open.
+      */}
       <CartWrapper isOpen={isCartOpen}>
         <ProductsInBasket>
           {basketArray.map((product, index) => {
@@ -118,6 +53,11 @@ const Cart = ({ isCartOpen, changeCartStatus }) => {
 
         </ProductsInBasket>
         <ButtonWrapper>
+          {/*
+          Empty basket simply empties the basket in redux store.
+          changeCartStatus updates the isCartOpen data (this data is a state in Navbar) . changeCartStatus is 
+          a function in Navbar and it updates the state.
+          */}
           <StyledButton onClick={() => dispatch(emptyBasket())}> Checkout </StyledButton>
           <StyledButton onClick={() => changeCartStatus()} ><ImCross /> </StyledButton>
         </ButtonWrapper>
@@ -171,10 +111,14 @@ width:100%;
 `;
 
 const CartWrapper = styled.div`
+/*
+The cart is normally not visible (because of right:-100%). It has a fixed position.
+When isOpen prop is true, we set right:0 and now the cart is visible and has a z-index:1 , it's on top of the ui.
+*/
   position: fixed;
   z-index: 1;
   top: 0;
-  right: -110%;
+  right: -100%;
   display: flex;
   flex-flow:column nowrap;
   align-items: center;
@@ -195,6 +139,11 @@ const CartWrapper = styled.div`
 `
 
 const Overlay = styled.div`
+  /*
+  Similar to CartWrapper, this has fixed positioning and also when the cart is open, overlay covers all 
+  of the left part. When the user doesn't click to the Cart's internal exit button, they can easily click 
+  overlay to close the cart.
+  */
   position: fixed;
   top: 0;
   left: -100%;

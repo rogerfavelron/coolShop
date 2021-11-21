@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ProductCard from './ProductCard';
+import ProductCard from '../ProductCard';
 import styled, { css } from 'styled-components';
 import { ImCross } from "react-icons/im";
 import { FaSave } from 'react-icons/fa';
 
+/*
+The OnePiece component fetches the data from the API, displays the products in ProductCard components.
+*/
 const OnePiece = () => {
-
+    /*
+    -totalData stores the products as an array.
+    -crew state is used for filtering by crews. when we choose a crew from filters, we update this state and since useEffect tracks it, 
+    in useEffect hook, we get the right data for a crew using data[crew] syntax.
+    -sorting is used for price filtering, it may be "highToLow" or "lowToHigh".
+    -filtering is a boolean state to decide whether to show filters or not. filter part has z-index:1, so they are on top of the ui, so when this is 
+    false, we display:none the filters.
+    */
     const [totalData, setTotalData] = useState([]);
     const [crew, setCrew] = useState('straw-hat-pirates');
     const [sorting, setSorting] = useState('');
@@ -17,7 +27,7 @@ const OnePiece = () => {
             const getCrews = await axios.get('https://fierce-taiga-45635.herokuapp.com/crews');
             let data = getCrews.data;
             data = data[crew];
-            console.log("dataa", data);
+           // console.log("dataa", data);
             setTotalData(data);
         }
         getOpData()
@@ -25,40 +35,40 @@ const OnePiece = () => {
 
     const changeFiltering = () => {
         if (filtering === false) {
-            console.log("filter was false, now it should be true");
+            //console.log("filter was false, now it should be true");
             setFiltering(true)
         }
         else {
-            console.log("filter was true, now it should be false")
+            //console.log("filter was true, now it should be false")
             setFiltering(false)
         }
     }
 
     const handleCrewChange = (e) => {
         const id = e.target.id;
-        const checked = e.target.checked;
-        console.log("name: ", id, "checked ", checked);
+        //const checked = e.target.checked;
+       // console.log("name: ", id, "checked ", checked);
         setCrew(id)
     }
 
     const changeSorting = (e) => {
         const id = e.target.id;
-        console.log("id", id);
+        //console.log("id", id);
         setSorting(id);
 
     }
     const saveFilters = () => {
-        console.log("we are trying to save the filters", sorting)
+       // console.log("we are trying to save the filters", sorting)
         if (sorting === "highToLow") {
-            console.log("it should be descending");
+           // console.log("it should be descending");
             const descendingOrder = totalData.sort((a, b) => b.price - a.price);
-            console.log(descendingOrder);
+           // console.log(descendingOrder);
             setTotalData(descendingOrder)
         }
         else {
-            console.log("it should be ascending");
+            //console.log("it should be ascending");
             const ascendingOrder = totalData.sort((a, b) => a.price - b.price);
-            console.log(ascendingOrder);
+           // console.log(ascendingOrder);
             setTotalData(ascendingOrder)
         }
         setFiltering(false)
@@ -125,8 +135,8 @@ const OnePiece = () => {
                 </ButtonWrapper>
 
             </FilteringDiv>
-  
-      </div>
+
+        </div>
     )
 }
 const ProductsWrapper = styled.div`

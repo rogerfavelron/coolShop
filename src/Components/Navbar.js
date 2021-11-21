@@ -2,10 +2,18 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components'
 import { FaBars, FaShoppingBag } from 'react-icons/fa'
 import { ImCross } from "react-icons/im";
-import Cart from './Cart'
+import { Cart } from './Cart'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+    /*
+    isCartOpen state is passed onto Cart component. This state is useful
+    because when the value is false, cart's display will be none.
+    
+    isOnMobile state is used for dropdown menu in smaller screens.
+    And also some css is adapted based on screen size, and they got that
+    data from isOnMobile.
+    */
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isOnMobile, setIsOnMobile] = useState(false);
     const changeCartStatus = () => {
@@ -14,6 +22,9 @@ const Navbar = () => {
 
     }
     useEffect(() => {
+        /*Check the screen size on every render, prevent possible bugs by
+        checking the screen size and setting the isOnMobile when necessary.
+        */
         function handleResize() {
             if (window.innerWidth >= 800) {
                 console.log("now bigger than 800")
@@ -26,10 +37,12 @@ const Navbar = () => {
         //Cleanup the useEffect when the component unmounts
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+    //onMobile function changes the isOnMobile. This data is used in small screen
+    //dropdown.
     const onMobile = () => {
         if (isOnMobile) setIsOnMobile(false)
         else setIsOnMobile(true)
-        console.log("changed the mobile now")
+        //console.log("changed the mobile now")
 
     }
     return (
@@ -105,7 +118,7 @@ border:4px solid black;
     width:100%;
 }
 `
-}
+    }
  ${({ isOnMobile }) =>
         !isOnMobile && css`
 @media only screen and (min-width:800px){

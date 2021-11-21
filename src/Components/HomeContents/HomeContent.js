@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 
-
+/*
+In the homepage, we see 2 home contents: One Piece & Electronics.
+*/
 export const HomeContentOnePiece = () => {
     return (
         <HomeContentWrapper>

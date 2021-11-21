@@ -6,6 +6,7 @@ export const Slice = createSlice({
         products:{ }
     },
     reducers:{
+        //add product to redux store with its name
         addProduct : (state,action)=>{
             const payload = action.payload;
             //look at the added thing again!!
@@ -19,6 +20,7 @@ export const Slice = createSlice({
 
             }
         },
+        //remove product 
         removeProduct : (state,action)=>{
             let payload = action.payload;
             console.log("remove product payload", payload)
