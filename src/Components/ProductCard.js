@@ -26,7 +26,7 @@ const ProductCard = ({name, price, imageUrl}) => {
     return (
         <ProductCardWrapper>
             <ImageWrapper>
-                <StyledImage src={imageUrl} />
+                <StyledImage src={imageUrl} alt="product-image" />
             </ImageWrapper>
             <ProductDetails>
                 <ProductName>{name}</ProductName>

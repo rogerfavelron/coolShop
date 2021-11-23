@@ -23,14 +23,20 @@ const OnePiece = () => {
     const [filtering, setFiltering] = useState(false);
 
     useEffect(() => {
+        let isApiSubscribed = true;
         const getOpData = async () => {
             const getCrews = await axios.get('https://fierce-taiga-45635.herokuapp.com/crews');
-            let data = getCrews.data;
-            data = data[crew];
-           // console.log("dataa", data);
-            setTotalData(data);
+            if (isApiSubscribed) {
+                let data = getCrews.data;
+                data = data[crew];
+                // console.log("data", data);
+                setTotalData(data);
+            }
         }
-        getOpData()
+        getOpData();
+        return () => {
+            isApiSubscribed=false;
+        }
     }, [crew])
 
     const changeFiltering = () => {
@@ -47,7 +53,7 @@ const OnePiece = () => {
     const handleCrewChange = (e) => {
         const id = e.target.id;
         //const checked = e.target.checked;
-       // console.log("name: ", id, "checked ", checked);
+        // console.log("name: ", id, "checked ", checked);
         setCrew(id)
     }
 
@@ -58,23 +64,24 @@ const OnePiece = () => {
 
     }
     const saveFilters = () => {
-       // console.log("we are trying to save the filters", sorting)
+        // console.log("we are trying to save the filters", sorting)
         if (sorting === "highToLow") {
-           // console.log("it should be descending");
+            // console.log("it should be descending");
             const descendingOrder = totalData.sort((a, b) => b.price - a.price);
-           // console.log(descendingOrder);
+            // console.log(descendingOrder);
             setTotalData(descendingOrder)
         }
         else {
             //console.log("it should be ascending");
             const ascendingOrder = totalData.sort((a, b) => a.price - b.price);
-           // console.log(ascendingOrder);
+            // console.log(ascendingOrder);
             setTotalData(ascendingOrder)
         }
         setFiltering(false)
     }
     return (
         <div>
+
             <FilterSection>
                 <FilterButton onClick={changeFiltering}>Filter</FilterButton>
             </FilterSection>
@@ -89,11 +96,11 @@ const OnePiece = () => {
                     <FilterInstanceBody>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={changeSorting} type="radio" id="lowToHigh" name="radio" />
-                            <label for="lowToHigh"> Low to high</label> <br />
+                            <label htmlFor="lowToHigh"> Low to high</label> <br />
                         </div>
                         <div onChange={changeSorting} style={{ padding: "0.5rem" }}>
                             <input type="radio" id="highToLow" name="radio" />
-                            <label for="highToLow"> High to low</label> <br />
+                            <label htmlFor="highToLow"> High to low</label> <br />
                         </div>
 
                     </FilterInstanceBody>
@@ -103,27 +110,27 @@ const OnePiece = () => {
                     <FilterInstanceBody>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={handleCrewChange} type="radio" id="straw-hat-pirates" name="pirates" />
-                            <label for="straw-hat-pirates"> Straw Hat Pirates</label> <br />
+                            <label htmlFor="straw-hat-pirates"> Straw Hat Pirates</label> <br />
                         </div>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={handleCrewChange} type="radio" id="whitebeard-pirates" name="pirates" />
-                            <label for="whitebeard-pirates"> Whitebeard Pirates</label> <br />
+                            <label htmlFor="whitebeard-pirates"> Whitebeard Pirates</label> <br />
                         </div>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={handleCrewChange} type="radio" id="roger-pirates" name="pirates" />
-                            <label for="roger-pirates"> Roger Pirates</label> <br />
+                            <label htmlFor="roger-pirates"> Roger Pirates</label> <br />
                         </div>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={handleCrewChange} type="radio" id="big-mom-pirates" name="pirates" />
-                            <label for="big-mom-pirates"> Big Mom Pirates</label> <br />
+                            <label htmlFor="big-mom-pirates"> Big Mom Pirates</label> <br />
                         </div>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={handleCrewChange} type="radio" id="red-hair-pirates" name="pirates" />
-                            <label for="red-hair-pirates"> Red Hair Pirates</label> <br />
+                            <label htmlFor="red-hair-pirates"> Red Hair Pirates</label> <br />
                         </div>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={handleCrewChange} type="radio" id="beast-pirates" name="pirates" />
-                            <label for="beast-pirates"> Beast Pirates</label> <br />
+                            <label htmlFor="beast-pirates"> Beast Pirates</label> <br />
                         </div>
 
                     </FilterInstanceBody>
@@ -135,6 +142,7 @@ const OnePiece = () => {
                 </ButtonWrapper>
 
             </FilteringDiv>
+
 
         </div>
     )
