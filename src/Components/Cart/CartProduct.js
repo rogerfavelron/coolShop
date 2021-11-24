@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
 import { addProduct, removeProduct } from '../../State/BasketSlice';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 
 //CartProduct is the component we use to represent each product in cart. 
-const CartProduct = ({ productData }) => {
-  const dispatch = useDispatch();
+const CartProduct = ({ productData, dispatch }) => {
   //Calculate the total price for this product. Since a product's count may be more than 1, we multiply the product's price with the count 
   let totalPrice = (parseFloat(productData.price) * productData.count).toFixed(2);
 
@@ -28,7 +26,7 @@ const CartProduct = ({ productData }) => {
     <BasketProductWrapper>
       <div>
         {productData.name}
-        <ProductPrice>$ {totalPrice}</ProductPrice>
+        <ProductPrice data-testid="price">$ {totalPrice}</ProductPrice>
       </div>
 
       <BasketProductCountWrapper>

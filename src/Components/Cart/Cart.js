@@ -46,12 +46,12 @@ const Cart = ({ isCartOpen, changeCartStatus }) => {
           {basketArray.map((product, index) => {
             return (
               <div>
-                <CartProduct key={index} productData={product} />
+                <CartProduct key={index} productData={product} dispatch={dispatch}/>
               </div>
             )
           })}
 
-        </ProductsInBasket>
+        </ProductsInBasket> 
         <ButtonWrapper>
           {/*
           Empty basket simply empties the basket in redux store.
