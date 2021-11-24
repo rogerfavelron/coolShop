@@ -32,9 +32,9 @@ const CartProduct = ({ productData }) => {
       </div>
 
       <BasketProductCountWrapper>
-        <BasketProductCountController id="minus" onClick={removeProductController}><FaMinus /></BasketProductCountController>
+        <BasketProductCountController id="minus" data-testid="minusButton" onClick={removeProductController}><FaMinus /></BasketProductCountController>
         <BasketProductCount>{productData.count}</BasketProductCount>
-        <BasketProductCountController id="plus" onClick={addProductController}><FaPlus /></BasketProductCountController>
+        <BasketProductCountController id="plus" data-testid="plusButton" onClick={addProductController}><FaPlus /></BasketProductCountController>
       </BasketProductCountWrapper>
     </BasketProductWrapper>
   )

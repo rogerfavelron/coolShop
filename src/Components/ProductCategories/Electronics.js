@@ -24,15 +24,21 @@ const Electronics = () => {
     const [filtering, setFiltering] = useState(false);
 
     useEffect(() => {
+        let isApiSubscribed = true;
         const getElectronicsData = async () => {
             const baseUrl = 'https://fierce-taiga-45635.herokuapp.com/electronics';
             const currentUrl = baseUrl + `?brand=${brand}`;
-            const getElectronics = await axios.get(currentUrl);
-            let data = getElectronics.data;
-            //console.log("data of electronics", data);
-            setTotalData(data);
+            if (isApiSubscribed) {
+                const getElectronics = await axios.get(currentUrl);
+                let data = getElectronics.data;
+                //console.log("data of electronics", data);
+                setTotalData(data);
+            }
         }
-        getElectronicsData()
+        getElectronicsData();
+        return ()=>{
+            isApiSubscribed=false;
+        }
     }, [brand])
 
     const changeFiltering = () => {
@@ -91,29 +97,29 @@ const Electronics = () => {
                     <FilterInstanceBody>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={changeSorting} type="radio" id="lowToHigh" name="radio" />
-                            <label for="lowToHigh"> Low to high</label> <br />
+                            <label htmlFor="lowToHigh"> Low to high</label> <br />
                         </div>
                         <div onChange={changeSorting} style={{ padding: "0.5rem" }}>
                             <input type="radio" id="highToLow" name="radio" />
-                            <label for="highToLow"> High to low</label> <br />
+                            <label htmlFor="highToLow"> High to low</label> <br />
                         </div>
 
                     </FilterInstanceBody>
                 </FilterInstanceWrapper>
                 <FilterInstanceWrapper>
-                    <FilterInstanceTitle>Crew</FilterInstanceTitle>
+                    <FilterInstanceTitle>Brand</FilterInstanceTitle>
                     <FilterInstanceBody>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={handleBrandChange} type="radio" id="Apple" name="electronics" />
-                            <label for="Apple"> Apple</label> <br />
+                            <label htmlFor="Apple"> Apple</label> <br />
                         </div>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={handleBrandChange} type="radio" id="Tesla" name="electronics" />
-                            <label for="Tesla"> Tesla</label> <br />
+                            <label htmlFor="Tesla"> Tesla</label> <br />
                         </div>
                         <div style={{ padding: "0.5rem" }}>
                             <input onChange={handleBrandChange} type="radio" id="SpaceX" name="electronics" />
-                            <label for="SpaceX"> SpaceX</label> <br />
+                            <label htmlFor="SpaceX"> SpaceX</label> <br />
                         </div>
 
 

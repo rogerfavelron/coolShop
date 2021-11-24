@@ -24,9 +24,9 @@ const OnePiece = () => {
 
     useEffect(() => {
         let isApiSubscribed = true;
-        const getOpData = async () => {
-            const getCrews = await axios.get('https://fierce-taiga-45635.herokuapp.com/crews');
+        const getOpData = async () => { 
             if (isApiSubscribed) {
+                const getCrews = await axios.get('https://fierce-taiga-45635.herokuapp.com/crews');
                 let data = getCrews.data;
                 data = data[crew];
                 // console.log("data", data);
@@ -86,9 +86,9 @@ const OnePiece = () => {
                 <FilterButton onClick={changeFiltering}>Filter</FilterButton>
             </FilterSection>
             <ProductsWrapper>
-                {totalData.map((product, index) =>
+                {totalData?totalData.map((product, index) =>
                     <ProductCard key={index} name={product.name} price={product.price} imageUrl={product.image} />
-                )}
+                ):<div></div>}
             </ProductsWrapper>
             <FilteringDiv isFiltering={filtering}>
                 <FilterInstanceWrapper>
