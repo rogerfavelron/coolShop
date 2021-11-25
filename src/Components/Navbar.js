@@ -49,7 +49,7 @@ const Navbar = () => {
     return (
         <>
             <NavbarWrapper className="grey">
-                <TitleWrapper to="/">Cool Shop</TitleWrapper>
+                <TitleWrapper to="/coolShop">Cool Shop</TitleWrapper>
                 <LinksWrapper className="grey" isOnMobile={isOnMobile}>
                     <ListElement to="coolShop/electronics">Electronics</ListElement>
                     <ListElement to="coolShop/onepiece">One Piece</ListElement>
