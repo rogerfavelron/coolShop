@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/coolShop/static/css/main.8e34dd01.chunk.css",
-    "main.js": "/coolShop/static/js/main.ff4d189b.chunk.js",
-    "main.js.map": "/coolShop/static/js/main.ff4d189b.chunk.js.map",
+    "main.css": "/coolShop/static/css/main.08bbe917.chunk.css",
+    "main.js": "/coolShop/static/js/main.b5d11b84.chunk.js",
+    "main.js.map": "/coolShop/static/js/main.b5d11b84.chunk.js.map",
     "runtime-main.js": "/coolShop/static/js/runtime-main.338e6688.js",
     "runtime-main.js.map": "/coolShop/static/js/runtime-main.338e6688.js.map",
-    "static/js/2.353ada61.chunk.js": "/coolShop/static/js/2.353ada61.chunk.js",
-    "static/js/2.353ada61.chunk.js.map": "/coolShop/static/js/2.353ada61.chunk.js.map",
+    "static/js/2.9969c208.chunk.js": "/coolShop/static/js/2.9969c208.chunk.js",
+    "static/js/2.9969c208.chunk.js.map": "/coolShop/static/js/2.9969c208.chunk.js.map",
     "index.html": "/coolShop/index.html",
-    "precache-manifest.3b0d4c3efd9f46c8329b723ff0a2c508.js": "/coolShop/precache-manifest.3b0d4c3efd9f46c8329b723ff0a2c508.js",
+    "precache-manifest.89342a9d3275fc5af56d7193d90afb03.js": "/coolShop/precache-manifest.89342a9d3275fc5af56d7193d90afb03.js",
     "service-worker.js": "/coolShop/service-worker.js",
-    "static/css/main.8e34dd01.chunk.css.map": "/coolShop/static/css/main.8e34dd01.chunk.css.map",
-    "static/js/2.353ada61.chunk.js.LICENSE.txt": "/coolShop/static/js/2.353ada61.chunk.js.LICENSE.txt"
+    "static/css/main.08bbe917.chunk.css.map": "/coolShop/static/css/main.08bbe917.chunk.css.map",
+    "static/js/2.9969c208.chunk.js.LICENSE.txt": "/coolShop/static/js/2.9969c208.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.338e6688.js",
-    "static/js/2.353ada61.chunk.js",
-    "static/css/main.8e34dd01.chunk.css",
-    "static/js/main.ff4d189b.chunk.js"
+    "static/js/2.9969c208.chunk.js",
+    "static/css/main.08bbe917.chunk.css",
+    "static/js/main.b5d11b84.chunk.js"
   ]
 }
