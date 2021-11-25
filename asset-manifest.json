@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/coolShop/static/css/main.08bbe917.chunk.css",
-    "main.js": "/coolShop/static/js/main.1a760fee.chunk.js",
-    "main.js.map": "/coolShop/static/js/main.1a760fee.chunk.js.map",
+    "main.js": "/coolShop/static/js/main.1ba5b373.chunk.js",
+    "main.js.map": "/coolShop/static/js/main.1ba5b373.chunk.js.map",
     "runtime-main.js": "/coolShop/static/js/runtime-main.338e6688.js",
     "runtime-main.js.map": "/coolShop/static/js/runtime-main.338e6688.js.map",
     "static/js/2.9969c208.chunk.js": "/coolShop/static/js/2.9969c208.chunk.js",
     "static/js/2.9969c208.chunk.js.map": "/coolShop/static/js/2.9969c208.chunk.js.map",
     "index.html": "/coolShop/index.html",
-    "precache-manifest.de06c7ba9d83b29ced6b5164b865d118.js": "/coolShop/precache-manifest.de06c7ba9d83b29ced6b5164b865d118.js",
+    "precache-manifest.5e21abd6f62253c93c9803903aaad853.js": "/coolShop/precache-manifest.5e21abd6f62253c93c9803903aaad853.js",
     "service-worker.js": "/coolShop/service-worker.js",
     "static/css/main.08bbe917.chunk.css.map": "/coolShop/static/css/main.08bbe917.chunk.css.map",
     "static/js/2.9969c208.chunk.js.LICENSE.txt": "/coolShop/static/js/2.9969c208.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.338e6688.js",
     "static/js/2.9969c208.chunk.js",
     "static/css/main.08bbe917.chunk.css",
-    "static/js/main.1a760fee.chunk.js"
+    "static/js/main.1ba5b373.chunk.js"
   ]
 }
