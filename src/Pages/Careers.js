@@ -10,8 +10,8 @@ const Careers = () => {
                 Current open positions are listed below:
                 <br/>
                 <br/> 
-                <StyledPosition>
-                    <StyledPositionTitle>
+                <StyledPosition className="grey">
+                    <StyledPositionTitle className="grey">
                         Database Administrator
                     </StyledPositionTitle>
                      I need a person who can improve our database. For example,
@@ -37,12 +37,10 @@ min-height:70vh;
 
 `
 const StyledPosition= styled.div`
-background-color: rgb(222,222,222);
 border-radius: 0.5rem;
 padding:1rem;
 `
 const StyledPositionTitle= styled.div`
-background-color: rgb(222,222,222);
 border-radius: 0.5rem;
 padding:0.5rem;
 font-size:1.5rem;

@@ -41,7 +41,7 @@ const Cart = ({ isCartOpen, changeCartStatus }) => {
       {/*
       Pass the isCartOpen boolean as a prop. We'll display:none when the cart is not open.
       */}
-      <CartWrapper isOpen={isCartOpen}>
+      <CartWrapper className="holyPink" isOpen={isCartOpen}>
         <ProductsInBasket>
           {basketArray.map((product, index) => {
             return (
@@ -124,7 +124,6 @@ When isOpen prop is true, we set right:0 and now the cart is visible and has a z
   align-items: center;
   width: 30rem;
   height: 100%;
-  background-color: rgb(204, 114, 200);
   font-size: 2rem;
   transition: right 0.85s ease-in-out;
 

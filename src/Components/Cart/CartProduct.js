@@ -24,10 +24,10 @@ const CartProduct = ({ productData, dispatch }) => {
   totalPrice = numberWithCommas(totalPrice);
   return (
     <BasketProductWrapper>
-      <div>
+      <ProductFirstPart>
         {productData.name}
         <ProductPrice data-testid="price">$ {totalPrice}</ProductPrice>
-      </div>
+      </ProductFirstPart>
 
       <BasketProductCountWrapper>
         <BasketProductCountController id="minus" data-testid="minusButton" onClick={removeProductController}><FaMinus /></BasketProductCountController>
@@ -43,7 +43,12 @@ For styling, i used styled-components. Wrapped basket product, put the name and 
 and created a count wrapper for manipulating the count of the product.
 
 */
-
+const ProductFirstPart = styled.div`
+width:14rem;
+padding:0.5rem;
+display:flex;
+flex-flow:column nowrap;
+`
 
 const ProductPrice = styled.div`
 color:black;

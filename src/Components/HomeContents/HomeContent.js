@@ -7,7 +7,7 @@ In the homepage, we see 2 home contents: One Piece & Electronics.
 */
 export const HomeContentOnePiece = () => {
     return (
-        <HomeContentWrapper>
+        <HomeContentWrapper className="grey">
             <StyledTitle>
                 "I'm gonna be the king of the pirates."
             </StyledTitle>
@@ -27,7 +27,6 @@ width:100%;
 border-radius:1rem;
 padding:1rem;
 margin-top:1.5rem;
-background-color:rgb(222,222,222);
 @media only screen and (min-width:800px){
     width:80%;
     margin-left:10%;
@@ -73,7 +72,7 @@ background-clip:text;
 `
 export const HomeContentElectronics = () =>{
     return (
-        <HomeContentWrapper>
+        <HomeContentWrapper className="grey">
             <ElectroStyledTitle>
                 Only. Cool. Electronics.
             </ElectroStyledTitle>

@@ -3,7 +3,8 @@ import styled, { css } from 'styled-components'
 import { FaBars, FaShoppingBag } from 'react-icons/fa'
 import { ImCross } from "react-icons/im";
 import { Cart } from './Cart'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import '../globalStyle.scss'
 
 const Navbar = () => {
     /*
@@ -47,9 +48,9 @@ const Navbar = () => {
     }
     return (
         <>
-            <NavbarWrapper>
+            <NavbarWrapper className="grey">
                 <TitleWrapper to="/">Cool Shop</TitleWrapper>
-                <LinksWrapper isOnMobile={isOnMobile}>
+                <LinksWrapper className="grey" isOnMobile={isOnMobile}>
                     <ListElement to="/electronics">Electronics</ListElement>
                     <ListElement to="/onepiece">One Piece</ListElement>
                     <ListElement to="about">About</ListElement>
@@ -87,14 +88,11 @@ border: 10px solid;
 border-image-slice: 1;
 border-width: 0.4rem;
 border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
-
 height:5rem;
 display: flex;
 flex-flow:row nowrap;
 justify-content: space-evenly;
 align-items: center;
-background-color:rgb(222,222,222);
-//background-color: rgb(204, 114, 200);
 @media only screen and (min-width:800px){
 height:7rem;
 }
@@ -106,7 +104,6 @@ ${({ isOnMobile }) =>
         isOnMobile && css`
 position: absolute;
 display: flex;
-background-color: rgb(235, 231, 227);
 right:0;
 top:5rem;
 z-index:1;
@@ -158,6 +155,7 @@ font-size: 1.35rem;
 const ButtonWrapper = styled.button`
 font-size:1.5rem;
 font-weight: 300;
+
 `
 const CloseButton = styled(ButtonWrapper)`
 display:none;

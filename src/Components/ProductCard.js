@@ -1,30 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useSelector,useDispatch} from 'react-redux';
-import { selectBasket,addProduct } from '../State/BasketSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectBasket, addProduct } from '../State/BasketSlice';
 
 //ProductCard components get the necessary data as props and render accordingly.
-const ProductCard = ({name, price, imageUrl}) => {
+const ProductCard = ({ name, price, imageUrl }) => {
 
     const basket = useSelector(selectBasket);
     const dispatch = useDispatch();
     const productData = {
-        name,price,imageUrl
+        name, price, imageUrl
     }
-    const addProductHandler = () =>{
-        if(price!=="unknown"){
+    const addProductHandler = () => {
+        if (price !== "unknown") {
             dispatch(addProduct(productData));
-        console.log(basket);
+            console.log(basket);
         }
     }
     //numberWithCommas is a utility function to represent big numbers with commas between them.
-  //Here is the source: https://stackoverflow.com/a/2901298
+    //Here is the source: https://stackoverflow.com/a/2901298
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      }
-      price = numberWithCommas(price);
+    }
+    price = numberWithCommas(price);
     return (
-        <ProductCardWrapper>
+        <ProductCardWrapper className="grey">
             <ImageWrapper>
                 <StyledImage src={imageUrl} alt="product-image" />
             </ImageWrapper>
@@ -32,7 +32,7 @@ const ProductCard = ({name, price, imageUrl}) => {
                 <ProductName>{name}</ProductName>
                 <ProductPrice>${price}</ProductPrice>
             </ProductDetails>
-            <StyledButton onClick={addProductHandler}>Add to cart</StyledButton>
+            <StyledButton className="holyPink" onClick={addProductHandler}>Add to cart</StyledButton>
         </ProductCardWrapper>
     )
 }
@@ -44,11 +44,15 @@ display:flex;
 flex-flow:column nowrap;
 align-items: center;
 padding:0.5rem;
-border:3px solid purple;
 border-radius:1rem;
 height:26rem;
 margin:1rem;
-background-color:rgb(222,222,222);
+
+transition:transform .5s;
+&:hover{
+    transform:scale(1.015);
+}
+
 `
 const ImageWrapper = styled.div`
 width:100%;

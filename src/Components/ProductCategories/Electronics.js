@@ -4,7 +4,7 @@ import ProductCard from '../ProductCard';
 import styled, { css } from 'styled-components';
 import { ImCross } from "react-icons/im";
 import { FaSave } from 'react-icons/fa';
-
+import ProgressBar from '../ProgressBar';
 /*
 The electronics component fetches the data from the API, displays the products in ProductCard components.
 */
@@ -18,7 +18,7 @@ const Electronics = () => {
     -filtering is a boolean state to decide whether to show filters or not. filter part has z-index:1, so they are on top of the ui, so when this is 
     false, we display:none the filters.
      */
-    const [totalData, setTotalData] = useState([]);
+    const [totalData, setTotalData] = useState('');
     const [brand, setBrand] = useState('Apple');
     const [sorting, setSorting] = useState('');
     const [filtering, setFiltering] = useState(false);
@@ -36,8 +36,8 @@ const Electronics = () => {
             }
         }
         getElectronicsData();
-        return ()=>{
-            isApiSubscribed=false;
+        return () => {
+            isApiSubscribed = false;
         }
     }, [brand])
 
@@ -84,12 +84,13 @@ const Electronics = () => {
     return (
         <div>
             <FilterSection>
-                <FilterButton onClick={changeFiltering}>Filter</FilterButton>
+                <FilterButton className="holyPink" onClick={changeFiltering}>Filter</FilterButton>
             </FilterSection>
             <ProductsWrapper>
-                {totalData.map((product, index) =>
-                    <ProductCard key={index} name={product.name} price={product.price} imageUrl={product.image} />
-                )}
+                {totalData
+                    ? totalData.map((product, index) =>
+                        <ProductCard key={index} name={product.name} price={product.price} imageUrl={product.image} />)
+                    : <ProgressBar />}
             </ProductsWrapper>
             <FilteringDiv isFiltering={filtering}>
                 <FilterInstanceWrapper>
@@ -153,7 +154,6 @@ margin:1rem;
 color:black;
 font-size: 1.5rem;
 border-radius: 0.5rem;
-background-color:rgb(204, 114, 200);
 @media (max-width:480px){
     width:60%;
     margin-left:20%;
