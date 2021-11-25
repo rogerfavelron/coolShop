@@ -51,9 +51,9 @@ const Navbar = () => {
             <NavbarWrapper className="grey">
                 <TitleWrapper to="/">Cool Shop</TitleWrapper>
                 <LinksWrapper className="grey" isOnMobile={isOnMobile}>
-                    <ListElement to="/electronics">Electronics</ListElement>
-                    <ListElement to="/onepiece">One Piece</ListElement>
-                    <ListElement to="about">About</ListElement>
+                    <ListElement to="coolShop/electronics">Electronics</ListElement>
+                    <ListElement to="coolShop/onepiece">One Piece</ListElement>
+                    <ListElement to="coolShop/about">About</ListElement>
                     <ButtonWrapper onClick={changeCartStatus}> <FaShoppingBag /> Cart</ButtonWrapper>
                     <CloseButton onClick={onMobile} isOnMobile={isOnMobile}><ImCross /> </CloseButton>
                 </LinksWrapper>

@@ -11,8 +11,8 @@ const Footer = () => {
                 This shop only sells cool products.
             <LinksWrapper>
             <GithubLink href='https://github.com/rogerfavelron'><FaGithub/></GithubLink>
-            <LinkWrapper to="/careers">Careers</LinkWrapper>
-            <LinkWrapper to="/about">About</LinkWrapper>
+            <LinkWrapper to="coolShop/careers">Careers</LinkWrapper>
+            <LinkWrapper to="coolShop/about">About</LinkWrapper>
             </LinksWrapper>
             </FooterWrapper>
         </div>

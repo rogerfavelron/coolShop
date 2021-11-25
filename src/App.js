@@ -11,16 +11,16 @@ import { Careers } from './Pages';
 import { Home } from './Pages';
 
 function App() {
+
   return (
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/coolShop" element={<Home />} />
-        <Route path="onepiece" element={<OnePiece />} />
-        <Route path="electronics" element={<Electronics />} />
-        <Route path="about" element={<About />} />
-        <Route path="careers" element={<Careers />} />
+        <Route path="coolShop/onepiece" element={<OnePiece />} />
+        <Route path="coolShop/electronics" element={<Electronics />} />
+        <Route path="coolShop/about" element={<About />} />
+        <Route path="coolShop/careers" element={<Careers />} />
       </Routes>
       <Footer />
     </div>
