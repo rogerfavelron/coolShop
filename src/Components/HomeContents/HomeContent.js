@@ -13,7 +13,7 @@ export const HomeContentOnePiece = () => {
             </StyledTitle>
             <StyledImage src="https://i.ibb.co/Z2DV2MT/luffy.png" />
             <StyledLinkWrapper>
-                <StyledLink to="coolShop/onepiece">View cool one piece posters</StyledLink>
+                <StyledLink to="onepiece">View cool one piece posters</StyledLink>
             </StyledLinkWrapper>
         </HomeContentWrapper>
     )
@@ -78,7 +78,7 @@ export const HomeContentElectronics = () =>{
             </ElectroStyledTitle>
             <StyledImage src="https://i.ibb.co/2jc5PC2/macintosh.png" />
             <StyledLinkWrapper>
-                <ElectroStyledLink to="coolShop/electronics">View cool electronics</ElectroStyledLink>
+                <ElectroStyledLink to="electronics">View cool electronics</ElectroStyledLink>
             </StyledLinkWrapper>
         </HomeContentWrapper>
     )
