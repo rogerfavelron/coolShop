@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8a95bb6997b19b910bb5ff28c3bc5918",
+    "revision": "f32440b6a893dc32ecf00ca01b83ce0e",
     "url": "/coolShop/index.html"
   },
   {
-    "revision": "9fee51f3fbc288306e74",
+    "revision": "61512f026b1163bc6949",
     "url": "/coolShop/static/css/main.08bbe917.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coolShop/static/js/2.9969c208.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9fee51f3fbc288306e74",
-    "url": "/coolShop/static/js/main.1ba5b373.chunk.js"
+    "revision": "61512f026b1163bc6949",
+    "url": "/coolShop/static/js/main.8f0dd640.chunk.js"
   },
   {
     "revision": "696e413eddffbb089f56",
