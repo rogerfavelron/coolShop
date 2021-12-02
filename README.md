@@ -1,4 +1,4 @@
-# cool shop
+# cool shop (responsive)
 
 Live link: "https://rogerfavelron.github.io/coolShop" </br>
 Note: The data may be loading slow, that's related to heroku.
