@@ -22,7 +22,3 @@ I've tested most important features(redux dispatch functions, fetching data etc)
 Technologies:
 
 React, Redux, Styled Components,React Router.
-<<<<<<< HEAD
-
-=======
->>>>>>> 0975daab4d3600df23ad3dc73df6a7191435d10b
