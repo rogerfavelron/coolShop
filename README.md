@@ -1,4 +1,6 @@
 # cool shop (responsive)
+![Screenshot from 2021-12-31 12-23-56](https://user-images.githubusercontent.com/87084040/147815125-0618bed2-94b8-4a55-9b5d-bee839e94b25.png)
+
 
 Live link: "https://rogerfavelron.github.io/coolShop" </br>
 Note: The data may be loading slow, that's related to heroku.
