@@ -66,9 +66,14 @@ font-weight:600;
 text-decoration:none;
 display: flex;
 align-items:center;
+/*
 background:-webkit-linear-gradient(45deg,#2ea0b1 20%,#7d4df2 80%);
 background-clip:text;
 -webkit-text-fill-color: transparent;
+ */
+//use this color until fixing chrome issue
+color:#2ea0b1;
+
 `
 export const HomeContentElectronics = () =>{
     return (
@@ -91,7 +96,12 @@ text-align:center;
 background-image: linear-gradient(to right,#202829,#d4d3d9); 
 `
 const ElectroStyledLink = styled(StyledLink)`
+/*
 background:-webkit-linear-gradient(45deg,#202829 20%,#a8a8a8 80%);
 background-clip:text;
 -webkit-text-fill-color: transparent;
+*/
+//use this color until fixing chrome issue
+color:#202829;
+
 `

@@ -3,7 +3,6 @@ import { CartProduct } from '../../Components/Cart';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { addProduct, removeProduct } from '../../State/BasketSlice'; 
-import { produceWithPatches } from 'immer';
 
 describe('CartProduct', () => {
     test('renders the count', () => {

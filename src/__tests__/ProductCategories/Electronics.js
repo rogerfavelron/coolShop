@@ -38,7 +38,7 @@ describe('Electronics', () => {
     test('renders essential parts', async () => {
         const promise = Promise.resolve()
         render(<Electronics />);
-        //sort by price and brand ilters are not visible in the initial render
+        //sort by price and brand filters are not visible in the initial render
         const sortBy = screen.getByText('sort by', { exact: false });
         const brand = screen.getByText('brand', { exact: false });
         expect(sortBy).not.toBeVisible();
